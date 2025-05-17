@@ -10,8 +10,8 @@
         <div class="head">
             <h1>To-Do List</h1>
             <div style="display: flex; align-items: center;">
-                <h3>User</h3>
-                <a href="./login.html" style="text-decoration: none; color: red;">
+                <h3>{{ request.user }}</h3>
+                <a href="{% url 'logout' %}" style="text-decoration: none; color: red;">
                 Log out
                 </a>
             </div>
@@ -47,7 +47,7 @@
               </div>
               <div>
                     <input type="text" value="{{task.status}}" readonly >
-                    <input type="date" value="{{task.deadline|date:'d.m.Y'}}" readonly>
+                    <input type="date" value="{{task.deadline|date:'Y-m-d'}}" readonly>
                     <button type="submit" class="edit"><a href="{% url 'task_update' task.id %}">Edit</a></button>
                     <button type="submit" class="delete"><a href="{% url 'task_delete' task.id %}">Delete</a></button>
               </div>

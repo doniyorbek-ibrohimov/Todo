@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Edit Task</title>
-    <link rel="stylesheet" type="text/css" href="{%static 'main.css' %}}}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
   </head>
   <body>
     <div class="container">
@@ -20,7 +20,7 @@
           <label for="status">Status</label>
           <select id="status" name="status">
             {% for status in statuses %}
-              <option {% if task.status==status.0 %} selected {% endif %}>{{ status.0 }}</option>
+                 <option value="{{ status.0 }}" {% if task.status == status.0 %}selected{% endif %}>{{ status.1 }}</option>
             {% endfor %}
           </select>
         </div>
